@@ -13,5 +13,9 @@ class CheckoutYourInfoPage extends Page {
         await this.inputLastName.addValue(checkoutYourInfoPageData.lastName);
         await this.inputPostalCode.addValue(checkoutYourInfoPageData.postalCode);
     }
+    async btnContinueClick() {
+        await this.click(await this.btnContinue);
+    }
 }
-export default new CheckoutYourInfoPage();
+const checkoutYourInfoPage = new CheckoutYourInfoPage();
+export default checkoutYourInfoPage;

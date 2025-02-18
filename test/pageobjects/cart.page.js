@@ -7,9 +7,18 @@ class CartPage extends Page {
     get btnCheckout() { return $('button[data-test="checkout"]'); }
     get btnContinueShopping() { return $('button[data-test="continue-shopping"]'); }
     get removeBtns() { return $$('button[id^="remove-"]'); }
-    
-    get errorMsg() { return $('[data-test="error"]'); }
 
+    get errorMsg() { return $('[data-test="error"]'); }
+    async getErrorText() {
+        return await this.getText(await this.errorMsg);
+    }
+
+    async btnContinueShoppingClick() {
+        await this.click(await this.btnContinueShopping);
+    }
+    async btnCheckoutClick() {
+        await this.click(await this.btnCheckout);
+    }
     async getProductsID() {
         const productsID = await this.removeBtns.map(async (elementID) => {
             let id = await elementID.getAttribute("id");
@@ -25,4 +34,5 @@ class CartPage extends Page {
         return await this.getNames(await this.productNames);
     }
 }
-export default new CartPage();
+const cartPage = new CartPage();
+export default cartPage;

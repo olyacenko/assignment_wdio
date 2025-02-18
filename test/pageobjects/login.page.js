@@ -13,6 +13,9 @@ class LoginPage extends Page {
         await this.inputUserName.addValue(userName);
         await this.inputPassword.addValue(password);
     }
+    async btnLoginClick() {
+        await this.click(await this.btnLogin);
+    }
     async login(userName, password) {
         await this.inputUserName.addValue(userName);
         await this.inputPassword.addValue(password);
@@ -39,5 +42,9 @@ class LoginPage extends Page {
                 borderColorPassword.value === "rgba(226,35,26,1)";
         }, { timeout: 2000, timeoutMsg: "The login or password border did not turn red!" });
     }
+    async getErrorText() {
+        return await this.getText(await this.errorMsg);
+    }
 }
-export default new LoginPage();
+const loginPage = new LoginPage();
+export default loginPage;

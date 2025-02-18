@@ -9,6 +9,9 @@ class InventoryPage extends Page {
     get btnLogout() { return $('a[data-test="logout-sidebar-link"]'); }
     get btnResetAppState() { return $('a[data-test="reset-sidebar-link"]'); }
 
+    async btnBurgerMenuClick() {
+        await this.click(await this.btnBurgerMenu);
+    }
     async logout() {
         await this.btnLogout.waitForClickable({ timeout: 2000 });
         await this.btnLogout.click();
@@ -37,6 +40,9 @@ class InventoryPage extends Page {
     get btnCart() { return $("#shopping_cart_container"); }
     get cartBadge() { return $('[data-test="shopping-cart-badge"]'); }
 
+    async btnCartClick() {
+        await this.click(await this.btnCart);
+    }
     async cartBadgeCounter() {
         if (await this.cartBadge.isDisplayed()) {
             return parseInt(await this.cartBadge.getText());
@@ -131,4 +137,5 @@ class InventoryPage extends Page {
         }
     }
 }
-export default new InventoryPage();
+const inventoryPage = new InventoryPage();
+export default inventoryPage;

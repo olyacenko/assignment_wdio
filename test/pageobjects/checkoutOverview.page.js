@@ -24,6 +24,10 @@ class CheckoutOverviewPage extends Page {
         const text = await this.totalPrice.getText();
         return parseFloat(text.replace("Item total: $", ""));
     }
+    async btnFinishClick() {
+        await this.click(await this.btnFinish);
+    }
 
 }
-export default new CheckoutOverviewPage();
+const checkoutOverviewPage = new CheckoutOverviewPage();
+export default checkoutOverviewPage;
