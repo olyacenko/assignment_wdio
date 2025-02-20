@@ -130,4 +130,4 @@ dist
 .pnp.*
 
 .DS_Store
-assignment_cucumber_wdio
+.vscode
