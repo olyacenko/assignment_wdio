@@ -26,7 +26,7 @@ class LoginPage extends Page {
         await expect(this.inputPassword).toHaveValue("");
     }
     async errorIconsToBeDisplayed() {
-        for (const errorIcon of this.errorIcons) {
+        for (const errorIcon of await this.errorIcons) {
             await expect(errorIcon).toBeDisplayed();
         }
     }

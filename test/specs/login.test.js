@@ -24,6 +24,7 @@ describe("Test suit Objective: Login", () => {
         await expect(loginPage.inputPassword).toHaveAttribute("type", "password");
 
         await loginPage.btnLoginClick();
+        await loginPage.errorIconsToBeDisplayed();
         await loginPage.loginPasswordFieldsToBeRed();
         await expect(loginPage.errorMsg).toBeDisplayed();
         await expect(await loginPage.getErrorText()).toBe(loginPageData.errorMsgContent);
@@ -35,6 +36,7 @@ describe("Test suit Objective: Login", () => {
         await expect(loginPage.inputPassword).toHaveAttribute("type", "password");
 
         await loginPage.btnLoginClick();
+        await loginPage.errorIconsToBeDisplayed();
         await loginPage.loginPasswordFieldsToBeRed();
         await expect(loginPage.errorMsg).toBeDisplayed();
         await expect(await loginPage.getErrorText()).toBe(loginPageData.errorMsgContent);
