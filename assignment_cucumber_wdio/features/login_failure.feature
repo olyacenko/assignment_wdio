@@ -3,7 +3,7 @@ Feature: Invalid login to Saucedemo website
   Scenario Outline: User cannot login to the Saucedemo website with invalid credentials
     Given User is located on the main page of saucedemo website
     When User enters data to the username: <username>, password: <password> fields
-    When User clicks “Login” button
+    When User clicks "Login" button
     Then User should see error message: <message>
 
     Examples:
